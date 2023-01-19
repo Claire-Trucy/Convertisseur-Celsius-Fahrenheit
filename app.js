@@ -43,7 +43,12 @@ class TemperatureInput extends React.Component {
         const scaleName = scaleNames[this.props.scale]
         return  <div className="form-group">
                     <label htmlFor={name}>Température ({scaleName})</label>
-                    <input type="text" id={name} value={temperature} className="form-control" onChange={this.handleChange}/>
+                    <input
+                        type="text"
+                        id={name}
+                        value={temperature}
+                        className="form-control"
+                        onChange={this.handleChange}/>
                 </div>
     }
 }
@@ -79,8 +84,14 @@ class Calculator extends React.Component {
         const celsius = scale === 'c' ? temperature : tryConvert(temperature, toCelsius);
         const fahrenheit = scale === 'f' ? temperature : tryConvert(temperature, toFahrenheit);
         return <div>
-            <TemperatureInput scale="c" temperature={celsius} onTemperatureChange={this.handleCelsiusChange} />
-            <TemperatureInput scale="f" temperature={fahrenheit} onTemperatureChange={this.handleFahrenheitChange}/>
+            <TemperatureInput
+                scale="c"
+                temperature={celsius}
+                onTemperatureChange={this.handleCelsiusChange} />
+            <TemperatureInput
+                scale="f"
+                temperature={fahrenheit}
+                onTemperatureChange={this.handleFahrenheitChange}/>
             <BoilingVerdict celsius={celsius} />
         </div>
     }
